@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoliday Travel Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Yoliday Travel Assistant 🧳</h1>
+            <p>Your personal guide to planning the perfect trip.</p>
+        </header>
+        <main>
+            <div id="chatbot-container" class="chatbot-container">
+                <div id="chatbot-messages" class="chatbot-messages">
+                    <!-- Messages will be injected here by JavaScript -->
+                </div>
+                <form id="chatbot-input-form" class="chatbot-input-form">
+                    <input type="text" id="user-input" placeholder="Ask about weather or packing..." autocomplete="off" required>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
