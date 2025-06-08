@@ -1,6 +1,5 @@
-// Get the Rasa server URL from the environment variable set in Railway
-// We provide a fallback for local testing.
-const RASA_SERVER_URL = window.RASA_SERVER_URL || 'http://localhost:5005';
+// This variable will be automatically replaced by Railway with your server's public URL
+const RASA_SERVER_URL = '{{RASA_SERVER_URL}}';
 const RASA_API_ENDPOINT = `${RASA_SERVER_URL}/webhooks/rest/webhook`;
 
 const chatMessages = document.getElementById('chatbot-messages');
