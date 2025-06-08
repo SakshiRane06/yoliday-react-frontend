@@ -1,11 +1,17 @@
 // src/Chatbot.js
+
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Chatbot.css'; // We'll create this file for styling
 
-// Corrected version
+// Build the full API endpoint URL. This is robust for both local and deployed environments.
 const RASA_API_ENDPOINT = (process.env.REACT_APP_RASA_SERVER_URL || 'http://localhost:5005') + '/webhooks/rest/webhook';
+
 function Chatbot() {
+    // FIX: SENDER_ID must be defined inside the component function to be accessible during build.
+    // We also make it a constant that doesn't change on every re-render using useState.
+    const [SENDER_ID] = useState('user_' + Math.random().toString(36).substr(2, 9));
+
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const messagesEndRef = useRef(null);
@@ -34,6 +40,7 @@ function Chatbot() {
 
         try {
             const response = await axios.post(RASA_API_ENDPOINT, {
+                // Now this will work correctly
                 sender: SENDER_ID,
                 message: userMessage
             });
