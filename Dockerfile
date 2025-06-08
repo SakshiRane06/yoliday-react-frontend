@@ -3,12 +3,10 @@ FROM node:lts-alpine as build
 
 WORKDIR /app
 
-# FIX: Copy package.json and package-lock.json specifically
-# This is more reliable than using a wildcard.
+# FIX: Copy package.json first.
 COPY package.json ./
-COPY package-lock.json ./
 
-# Install dependencies
+# Install dependencies. This will generate a lock file inside the container.
 RUN npm install
 
 # Copy the rest of the application source code
