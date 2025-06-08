@@ -1,5 +1,5 @@
 // This variable will be automatically replaced by Railway with your server's public URL
-const RASA_SERVER_URL = '{{RASA_SERVER_URL}}';
+const RASA_SERVER_URL = "https://rasa-server-production-724c.up.railway.app";
 const RASA_API_ENDPOINT = `${RASA_SERVER_URL}/webhooks/rest/webhook`;
 
 const chatMessages = document.getElementById('chatbot-messages');
