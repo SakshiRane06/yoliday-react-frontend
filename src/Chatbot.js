@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Chatbot.css'; // We'll create this file for styling
 
-const RASA_SERVER_URL = process.env.REACT_APP_RASA_SERVER_URL || 'http://localhost:5005/webhooks/rest/webhook';const SENDER_ID = 'user_' + Math.random().toString(36).substr(2, 9);
-
+// Corrected version
+const RASA_API_ENDPOINT = (process.env.REACT_APP_RASA_SERVER_URL || 'http://localhost:5005') + '/webhooks/rest/webhook';
 function Chatbot() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
@@ -33,7 +33,7 @@ function Chatbot() {
         setInput('');
 
         try {
-            const response = await axios.post(RASA_SERVER_URL, {
+            const response = await axios.post(RASA_API_ENDPOINT, {
                 sender: SENDER_ID,
                 message: userMessage
             });
